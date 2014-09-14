@@ -17,14 +17,11 @@ public class MyFragment extends Fragment {
     public MyFragment(){}
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_my, container, false);
         final ListView myListView = (ListView) rootView.findViewById(R.id.my_list_view);
         final EditText text = (EditText) rootView.findViewById(R.id.my_edit_text);
 
-
-        //FIXME - THESE ARE HARDCODED
         final ArrayList<String> listChats = new ArrayList<String>();
         listChats.add("hogi");
         listChats.add("asdads");
@@ -44,6 +41,7 @@ public class MyFragment extends Fragment {
 
                 listChats.add(value);
                 adapter.notifyDataSetChanged();
+                myListView.setSelection(listChats.size()-1);
             }
         });
 
